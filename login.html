@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login and Registration</title>
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap');
+
+        body {
+            font-family: "Merriweather", sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar {
+            background-color: #4BB4D1;
+            padding: 1rem;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 50px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .tabs {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+        }
+
+        .tabs button {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .tabs button.active {
+            background-color: #4BB4D1;
+            color: white;
+        }
+
+        form {
+            display: none;
+        }
+
+        form.active {
+            display: block;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .form-group input, select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .form-group .radio-group {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .radio-group input[type="radio"] {
+            accent-color: #4BB4D1; /* Match the theme color */
+            width: 16px;
+            height: 16px;
+            margin-right: 5px;
+        }
+
+        .form-group .radio-group label {
+            margin-right: 10px;
+        }
+
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            border: none;
+            background-color: #4BB4D1;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .btn:hover {
+            background-color: #3391aa;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <h1>BookMyDoc</h1>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">About</a>
+        </nav>
+    </div>
+
+    <div class="container">
+        <div class="tabs">
+            <button id="login-tab" class="active">Login</button>
+            <button id="register-tab">Patient Registration</button>
+            <button id="doctor-tab">Doctor Registration</button>
+        </div>
+
+        <!-- Login Form -->
+        <form id="login-form" class="active">
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="Enter your email">
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Enter your password">
+            </div>
+            <button type="submit" class="btn">Login</button>
+        </form>
+
+        <!-- Patient Registration Form -->
+        <form id="patient-form">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" placeholder="Enter your name">
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="text" id="phone" placeholder="Enter your phone number">
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="Enter your email">
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Enter your password">
+            </div>
+            <div class="form-group">
+                <label for="confirm-password">Confirm Password</label>
+                <input type="password" id="confirm-password" placeholder="Confirm your password">
+            </div>
+            <div class="form-group">
+                <label for="age">Age</label>
+                <input type="number" id="age" placeholder="Enter your age">
+            </div>
+            <div class="form-group">
+                <label for="gender">Gender</label>
+                <select id="gender">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Disability</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="disability" value="yes"> Yes</label>
+                    <label><input type="radio" name="disability" value="no"> No</label>
+                </div>
+            </div>
+            <button type="submit" class="btn">Sign Up as Patient</button>
+        </form>
+
+        <!-- Doctor Registration Form -->
+        <form id="doctor-form">
+            <div class="form-group">
+                <label for="doctor-name">Name</label>
+                <input type="text" id="doctor-name" placeholder="Enter your name">
+            </div>
+            <div class="form-group">
+                <label for="specialization">Specialization</label>
+                <input type="text" id="specialization" placeholder="Enter your specialization">
+            </div>
+            <div class="form-group">
+                <label for="license">License Number</label>
+                <input type="text" id="license" placeholder="Enter your license number">
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="Enter your email">
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Enter your password">
+            </div>
+            <button type="submit" class="btn">Sign Up as Doctor</button>
+        </form>
+    </div>
+
+    <script>
+        const loginTab = document.getElementById('login-tab');
+        const registerTab = document.getElementById('register-tab');
+        const doctorTab = document.getElementById('doctor-tab');
+
+        const loginForm = document.getElementById('login-form');
+        const patientForm = document.getElementById('patient-form');
+        const doctorForm = document.getElementById('doctor-form');
+
+        loginTab.addEventListener('click', () => {
+            loginTab.classList.add('active');
+            registerTab.classList.remove('active');
+            doctorTab.classList.remove('active');
+            loginForm.classList.add('active');
+            patientForm.classList.remove('active');
+            doctorForm.classList.remove('active');
+        });
+
+        registerTab.addEventListener('click', () => {
+            registerTab.classList.add('active');
+            loginTab.classList.remove('active');
+            doctorTab.classList.remove('active');
+            patientForm.classList.add('active');
+            loginForm.classList.remove('active');
+            doctorForm.classList.remove('active');
+        });
+
+        doctorTab.addEventListener('click', () => {
+            doctorTab.classList.add('active');
+            loginTab.classList.remove('active');
+            registerTab.classList.remove('active');
+            doctorForm.classList.add('active');
+            loginForm.classList.remove('active');
+            patientForm.classList.remove('active');
+        });
+    </script>
+</body>
+</html>
