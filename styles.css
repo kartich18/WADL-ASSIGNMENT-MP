@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap');
+
+body {
+    font-family: "Merriweather", sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    background-color: #4BB4D1;
+    padding: 1rem;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.container {
+    max-width: 500px;
+    margin: 50px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.tabs {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.tabs button {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.tabs button.active {
+    background-color: #4BB4D1;
+    color: white;
+}
+
+#login-tab {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+#doctor-tab{
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+form {
+    display: none;
+}
+
+form.active {
+    display: block;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input, select {
+    width: 100%;
+    padding: 10px; /* Adjusted padding for better fit */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box; /* Include padding and border in width */
+}
+
+.form-group .radio-group {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    margin-bottom: 10px; /* Added margin for better spacing */
+}
+
+.radio-group input[type="radio"] {
+    accent-color: #4BB4D1; /* Match the theme color */
+    width: 16px;
+    height: 16px;
+    margin-right: 5px;
+}
+
+.form-group .radio-group label {
+    margin-right: 10px;
+}
+
+.btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background-color: #4BB4D1;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.btn:hover {
+    background-color: #3391aa;
+}
+
+/* New styles for password visibility icon */
+.toggle-password {
+    width: 20px; /* Set the width of the icon */
+    height: 20px; /* Set the height of the icon */
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
