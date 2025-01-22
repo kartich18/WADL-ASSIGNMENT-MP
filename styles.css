@@ -119,13 +119,21 @@ form.active {
     background-color: #3391aa;
 }
 
-/* New styles for password visibility icon */
+
 .toggle-password {
-    width: 20px; /* Set the width of the icon */
-    height: 20px; /* Set the height of the icon */
+    width: 20px;
+    height: 20px; 
     position: absolute;
     right: 10px;
     top: 50%;
     transform: translateY(-50%);
     cursor: pointer;
+}
+
+.container a{
+    text-decoration: none;
+}
+
+.custom-navbar{
+    background-color: #3391aa;
 }
