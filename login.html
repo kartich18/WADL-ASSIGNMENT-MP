@@ -55,7 +55,7 @@
             <div class="form-group">
                 <label for="password">Password</label>
                 <div style="position: relative;">
-                    <input type="password" id="password" placeholder="Enter your password" required minlength="6">
+                    <input type="password" id="password" placeholder="Enter your password" required minlength="8">
                     <img src="assets/icons/eye-icon-open.png" alt="Show Password" class="toggle-password" onclick="togglePassword('password', this)" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer;">
                 </div>
             </div>
@@ -121,11 +121,11 @@
         const loginTab = document.getElementById('login-tab');
         const registerTab = document.getElementById('register-tab');
         const doctorTab = document.getElementById('doctor-tab');
-
+    
         const loginForm = document.getElementById('login-form');
         const patientForm = document.getElementById('patient-form');
         const doctorForm = document.getElementById('doctor-form');
-
+    
         loginTab.addEventListener('click', () => {
             loginTab.classList.add('active');
             registerTab.classList.remove('active');
@@ -134,7 +134,7 @@
             patientForm.classList.remove('active');
             doctorForm.classList.remove('active');
         });
-
+    
         registerTab.addEventListener('click', () => {
             registerTab.classList.add('active');
             loginTab.classList.remove('active');
@@ -143,7 +143,7 @@
             loginForm.classList.remove('active');
             doctorForm.classList.remove('active');
         });
-
+    
         doctorTab.addEventListener('click', () => {
             doctorTab.classList.add('active');
             loginTab.classList.remove('active');
@@ -152,28 +152,124 @@
             loginForm.classList.remove('active');
             patientForm.classList.remove('active');
         });
-
+    
         function togglePassword(id, icon) {
             const passwordField = document.getElementById(id);
             const type = passwordField.getAttribute('type') === 'password' ? 'text' : 'password';
             passwordField.setAttribute('type', type);
             icon.src = type === 'password' ? 'assets/icons/eye-icon-open.png' : 'assets/icons/eye-icon-closed.png';
         }
-
+    
         function validateLogin() {
-            // Add custom validation logic if needed
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+    
+            // Email Validation
+            const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            if (!emailRegex.test(email)) {
+                alert('Please enter a valid email address.');
+                return false;
+            }
+    
+            // Password Validation
+            if (password.length < 6) {
+                alert('Password must be at least 6 characters long.');
+                return false;
+            }
+    
             return true; // Allow form submission
         }
-
+    
         function validatePatient() {
-            // Add custom validation logic if needed
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirm-password').value;
+            const age = document.getElementById('age').value;
+    
+            // Name Validation (cannot be empty)
+            if (name.trim() === '') {
+                alert('Name cannot be empty.');
+                return false;
+            }
+    
+            // Phone Number Validation (must be 10 digits)
+            const phoneRegex = /^\d{10}$/;
+            if (!phoneRegex.test(phone)) {
+                alert('Please enter a valid 10-digit phone number.');
+                return false;
+            }
+    
+            // Email Validation
+            const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            if (!emailRegex.test(email)) {
+                alert('Please enter a valid email address.');
+                return false;
+            }
+    
+            // Password Validation (min 8 characters)
+            if (password.length < 8) {
+                alert('Password must be at least 8 characters long.');
+                return false;
+            }
+    
+            // Confirm Password Validation
+            if (password !== confirmPassword) {
+                alert('Passwords do not match.');
+                return false;
+            }
+    
+            // Age Validation (must be a positive number)
+            if (age <= 0) {
+                alert('Please enter a valid age.');
+                return false;
+            }
+    
             return true; // Allow form submission
         }
-
+    
         function validateDoctor() {
-            // Add custom validation logic if needed
+            const name = document.getElementById('doctor-name').value;
+            const specialization = document.getElementById('specialization').value;
+            const license = document.getElementById('license').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+    
+            // Name Validation (cannot be empty)
+            if (name.trim() === '') {
+                alert('Name cannot be empty.');
+                return false;
+            }
+    
+            // Specialization Validation (cannot be empty)
+            if (specialization.trim() === '') {
+                alert('Specialization cannot be empty.');
+                return false;
+            }
+    
+            // License Validation (cannot be empty)
+            if (license.trim() === '') {
+                alert('License number cannot be empty.');
+                return false;
+            }
+    
+            // Email Validation
+            const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            if (!emailRegex.test(email)) {
+                alert('Please enter a valid email address.');
+                return false;
+            }
+    
+            // Password Validation (min 6 characters)
+            if (password.length < 6) {
+                alert('Password must be at least 6 characters long.');
+                return false;
+            }
+    
             return true; // Allow form submission
         }
     </script>
+    
 </body>
 </html>
