@@ -39,7 +39,7 @@
         </form>
 
         <!-- Patient Registration Form -->
-        <form id="patient-form" onsubmit="return validatePatient()">
+        <form id="patient-form" onsubmit="return handlePatientRegistration()">
             <div class="form-group">
                 <label for="name">Name</label>
                 <input type="text" id="name" placeholder="Enter your name" required>
@@ -179,8 +179,44 @@
     
             return true; // Allow form submission
         }
+
+        function handlePatientRegistration() {
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('patient-password').value;
+            const age = document.getElementById('age').value;
+            const gender = document.getElementById('gender').value;
+            const disability = document.querySelector('input[name="disability"]:checked').value;
+
+            // Create patient object
+            const patientData = {
+                name,
+                phone,
+                email,
+                password,
+                age,
+                gender,
+                disability
+            };
+
+            
+            // Simulate registration by directly storing in local storage
+            let patients = JSON.parse(localStorage.getItem('patients')) || [];
+            patients.push(patientData);
+            localStorage.setItem('patients', JSON.stringify(patients));
+
+            console.log("Registration successful, redirecting to profile page...");
+            window.location.href = "patient-profile.html";
+
+
+            return false;
+        }
+
+
     
-        function validatePatient() {
+         // Prevent form submission
+         function validatePatient() {
             const name = document.getElementById('name').value;
             const phone = document.getElementById('phone').value;
             const email = document.getElementById('email').value;

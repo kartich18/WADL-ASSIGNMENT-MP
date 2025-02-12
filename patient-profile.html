@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Profile</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="navbar">
+        <h1>Patient Profile</h1>
+        <nav>
+            <a href="home.html">Home</a>
+            <a href="about.html">About</a>
+        </nav>
+    </div>
+
+    <div class="container">
+        <h2>Your Details</h2>
+        <div id="patient-details"></div>
+    </div>
+
+    <script>
+        // Retrieve patient data from local storage
+        const patients = JSON.parse(localStorage.getItem('patients')) || [];
+        const patientDetailsDiv = document.getElementById('patient-details');
+
+        if (patients.length > 0) {
+            const patient = patients[patients.length - 1]; // Get the most recent patient
+            patientDetailsDiv.innerHTML = `
+                <p><strong>Name:</strong> ${patient.name}</p>
+                <p><strong>Phone:</strong> ${patient.phone}</p>
+                <p><strong>Email:</strong> ${patient.email}</p>
+                <p><strong>Age:</strong> ${patient.age}</p>
+                <p><strong>Gender:</strong> ${patient.gender}</p>
+                <p><strong>Disability:</strong> ${patient.disability}</p>
+            `;
+        } else {
+            patientDetailsDiv.innerHTML = '<p>No patient data found.</p>';
+        }
+    </script>
+</body>
+</html>
+</create_file>
