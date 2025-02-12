@@ -42,11 +42,11 @@
         <form id="patient-form" onsubmit="return handlePatientRegistration()">
             <div class="form-group">
                 <label for="name">Name</label>
-                <input type="text" id="name" placeholder="Enter your name" required>
+                <input type="text" id="name" placeholder="Enter your name" required pattern="[A-Za-z]+" title="Only alphabets are allowed.">
             </div>
             <div class="form-group">
                 <label for="phone">Phone Number</label>
-                <input type="number" id="phone" placeholder="Enter your phone number" required pattern="\d{10}" title="Please enter a valid 10-digit phone number.">
+                <input maxlength="10" type="text" id="phone" placeholder="Enter your phone number" required pattern="\d{10}" title="Please enter a valid 10-digit phone number.">
             </div>
             <div class="form-group">
                 <label for="email">Email</label>
@@ -92,7 +92,7 @@
         <form id="doctor-form" onsubmit="return validateDoctor()">
             <div class="form-group">
                 <label for="doctor-name">Name</label>
-                <input type="text" id="doctor-name" placeholder="Enter your name" required>
+                <input type="text" id="doctor-name" placeholder="Enter your name" required pattern="[A-Za-z]+" title="Only alphabets are allowed.">
             </div>
             <div class="form-group">
                 <label for="specialization">Specialization</label>
